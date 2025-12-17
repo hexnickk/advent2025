@@ -32,11 +32,17 @@ func getData(filename string) []int {
 
 func task1(data []int) {
 	value := 50
+	pass := 0
 	for _, rotation := range data {
 		value = (value + rotation + 100) % 100
+
+		if value == 0 {
+			pass++
+		}
 	}
 
-	fmt.Println("Final value:", value)
+	fmt.Println("----- FINAL -----")
+	fmt.Println("value", value, "\t pass:", pass)
 }
 
 func task2(data []int) {
@@ -52,7 +58,7 @@ func task2(data []int) {
 		}
 
 		value = (newValue + 100) % 100
-		fmt.Println("rotation:", rotation, "\tvalue:", value, "\t pass:", pass)
+		// fmt.Println("rotation:", rotation, "\tvalue:", value, "\t pass:", pass)
 	}
 
 	fmt.Println("----- FINAL -----")
